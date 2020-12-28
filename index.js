@@ -6,7 +6,7 @@ app.get('/',function(req,res){
         id:1,
         nama:'Fahrul'
     }
-    res.send(user);
+    res.json(user);
 });
 
 app.get('/about',function(req,res){

@@ -2,7 +2,11 @@ const express = require('express');
 const app = express();
 
 app.get('/',function(req,res){
-    res.send('Hello Word');
+    const user ={
+        id:1,
+        nama:'Fahrul'
+    }
+    res.send(user);
 });
 
 app.get('/about',function(req,res){

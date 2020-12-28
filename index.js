@@ -17,17 +17,17 @@ app.get('/status',function(req,res){
     res.sendStatus(500);
 })
 
-
-
-
-
 app.get('/express',function(req,res){
     res.redirect('https://expressjs.com/');
 })
 
-app.get('/users',function(req,res){
-    res.send('Get User');
-})
+app.route('/user')
+   .get(function(req,res){
+       res.send('Get User')
+   })
+   .post(function(req,res){
+       res.send('Post User')
+   })
 
 app.post('/users',function(req,res){
     res.send('Post User');

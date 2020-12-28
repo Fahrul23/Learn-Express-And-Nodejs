@@ -13,6 +13,13 @@ app.get('/about',function(req,res){
     res.redirect('/users');
 })
 
+app.get('/status',function(req,res){
+    res.sendStatus(500);
+})
+
+
+
+
 
 app.get('/express',function(req,res){
     res.redirect('https://expressjs.com/');

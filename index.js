@@ -10,7 +10,12 @@ app.get('/',function(req,res){
 });
 
 app.get('/about',function(req,res){
-    res.send('Halaman About');
+    res.redirect('/users');
+})
+
+
+app.get('/express',function(req,res){
+    res.redirect('https://expressjs.com/');
 })
 
 app.get('/users',function(req,res){

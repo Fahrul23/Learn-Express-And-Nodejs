@@ -17,8 +17,9 @@ app.post('/users',function(req,res){
     res.send('Post User');
 })
 
-app.put('/users',function(req,res){
-    res.send('Put User');
+app.put('/users/:userId/books/:booksId',function(req,res){
+    const id = req.params
+    res.send(id);
 })
 
 app.delete('/users',function(req,res){

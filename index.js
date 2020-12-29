@@ -2,8 +2,11 @@ const express = require('express');
 
 const userRouter = require('./src/router/user');
 
-
 const app = express();
+
+app.use(express.json()) // for parsing application/json
+app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
+
 
 app.get('/',function(req,res){
     const user ={

@@ -1,4 +1,8 @@
 const express = require('express');
+
+const userRouter = require('./src/router/user');
+
+
 const app = express();
 
 app.get('/',function(req,res){
@@ -8,6 +12,8 @@ app.get('/',function(req,res){
     }
     res.json(user);
 });
+
+app.use(userRouter)
 
 app.get('/about',function(req,res){
     res.redirect('/users');
@@ -21,22 +27,6 @@ app.get('/express',function(req,res){
     res.redirect('https://expressjs.com/');
 })
 
-app.route('/user')
-   .get(function(req,res){
-       res.send('Get User')
-   })
-   .post(function(req,res){
-       res.send('Post User')
-   })
-
-app.post('/users',function(req,res){
-    res.send('Post User');
-})
-
-app.put('/users/:userId/books/:booksId',function(req,res){
-    const id = req.params
-    res.send(id);
-})
 
 app.delete('/users',function(req,res){
     res.send('Delete User');

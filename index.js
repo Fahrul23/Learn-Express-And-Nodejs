@@ -14,13 +14,15 @@ var myLogger = function(req,res,next){
 
 app.use(myLogger);
 
+app.set('view engine', 'ejs')
+
 app.get('/',function(req,res){
     const user ={
         id:1,
         nama:'Fahrul',
         data:req.time.toString()
     }
-    res.json(user);
+    res.render('index', {user:user})
 });
 
 app.use(userRouter)

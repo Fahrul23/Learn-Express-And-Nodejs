@@ -7,11 +7,18 @@ const app = express();
 app.use(express.json()) // for parsing application/json
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
+var myLogger = function(req,res,next){
+   req.time= new Date();
+    next();
+}
+
+app.use(myLogger);
 
 app.get('/',function(req,res){
     const user ={
         id:1,
-        nama:'Fahrul'
+        nama:'Fahrul',
+        data:req.time.toString()
     }
     res.json(user);
 });

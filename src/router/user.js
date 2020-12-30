@@ -17,13 +17,32 @@ let users= [
     },
 ]
 
-router.route('/user')
+router.route('/users')
     .get(function(req,res){
-        res.json(users)
+        if(users.length > 0){
+            res.json({
+                status:true,
+                data:users,
+                method:req.method,
+                url:req.url
+            })
+        }else{
+            response.json({
+                status:false,
+                message: 'Data Users Masih Kosong'  
+
+            })
+        }
     })
     .post(function(req,res){
         users.push(req.body);
-        res.send(users);
+        res.send({
+            status:true,
+            data:users,
+            method:req.method,
+            url:req.url,
+            message:'Data User Berhasil Disimpan'
+        });
     })
 
 
@@ -38,13 +57,27 @@ router.put('/users/:id',function(req,res){
             return user
         }
     })
-    res.json(users);
+    res.json({
+        status:true,
+        data:users,
+        method:req.method,
+        url:req.url,
+        message:'Data User Berhasil Diedit'
+    
+    });
 })
 
 router.delete('/users/:UserId',function(req,res){
     let id = req.params.UserId;
     user = users.filter(user => user.id != id )
-    res.send(user);
+    res.send({
+        status:true,
+        data:users,
+        method:req.method,
+        url:req.url,
+        message:'Data User Berhasil Disimpan'
+    
+    });
 })
 
 

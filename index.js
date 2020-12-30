@@ -22,13 +22,13 @@ app.get('/',function(req,res){
         nama:'Fahrul',
         data:req.time.toString()
     }
-    res.render('index', {user:user})
+    res.render('pages/index', {user:user})
 });
 
 app.use(userRouter)
 
 app.get('/about',function(req,res){
-    res.redirect('/users');
+    res.render('pages/about');
 })
 
 app.get('/status',function(req,res){
